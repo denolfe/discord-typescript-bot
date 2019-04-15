@@ -14,9 +14,10 @@ export type BotConfig = {
   enableReactions: boolean,
 };
 
+require("dotenv").config();
 export let config: BotConfig = {
-  token: "", // TODO: Put your token here!
-  prefix: "./",
-  botOwnerRoleName: "bot-owner",
+  token: process.env.DISCORD_TOKEN,
+  prefix: process.env.COMMAND_PREFIX || ".",
+  botOwnerRoleName: "Mod",
   enableReactions: true,
 };
