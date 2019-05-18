@@ -34,10 +34,10 @@ export class CommandHandler {
     const matchedCommand = this.commands.find(command => command.commandNames.includes(commandContext.parsedCommandName));
 
     if (!matchedCommand) {
-      await message.reply(`I don't recognize that command. Try !help.`);
+      await message.reply(`I don't recognize that command. Try ${this.prefix}help.`);
       await reactor.failure(message);
     } else if (!allowedCommands.includes(matchedCommand)) {
-      await message.reply(`you aren't allowed to use that command. Try !help.`);
+      await message.reply(`you aren't allowed to use that command. Try ${this.prefix}help.`);
       await reactor.failure(message);
     } else {
       await matchedCommand.run(commandContext).then(() => {
